@@ -50,7 +50,7 @@ export default function ContentModal({ children, media_type, id }) {
   const fetchVideo = async () => {
     try {
       const { data } = await axios.get(
-        `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${APP_API_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${API_KEY}&language=en-US`
       );
       setVideo(data.results?.[0]?.key || "");
     } catch (error) {
