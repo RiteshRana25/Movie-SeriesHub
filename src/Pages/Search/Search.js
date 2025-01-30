@@ -12,12 +12,11 @@ const Search = () => {
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const fetchSearch = async () => {
     const {data}=await axios.get(
-      `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
-        process.env.REACT_APP_API_KEY
-      }&language=en-US&query=${searchText}&page=${page}&include_adult=true`
+      `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=true`
     );
     setContent(data.results)
     setNumOfPages(data.total_pages);
